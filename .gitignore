@@ -1,0 +1,9 @@
+.DS_Store
+
+# Build artifacts
+build/
+src/proto/
+
+# Protobuf artifacs
+libcoins.pb.c
+libcoins.pb.h

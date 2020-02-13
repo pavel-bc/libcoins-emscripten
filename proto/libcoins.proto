@@ -1,0 +1,54 @@
+// A very simple protocol definition, consisting of only
+// one message.
+
+syntax = "proto2";
+
+message BigNum {
+    repeated uint32 val = 1;
+}
+
+message CurvePoint {
+    required BigNum x = 1;
+    required BigNum y = 2;
+}
+
+message CurveParams {
+    required BigNum prime = 1;
+    required CurvePoint g = 2;
+    required BigNum order = 3;
+    required BigNum order_half = 4;
+    required int32 value = 5;
+    required BigNum b = 6;
+}
+
+message CurveInfo {
+    enum HasherType {
+        HASHER_SHA2 = 0;
+        HASHER_SHA2D = 1;
+        HASHER_SHA2_RIPEMD = 2;
+        HASHER_SHA3 = 3;
+        HASHER_BLAKE = 4;
+        HASHER_BLAKED = 5;
+        HASHER_BLAKE_RIPEMD = 6;
+        HASHER_GROESTLD_TRUNC = 7;
+        HASHER_BLAKE2B = 8;
+        HASHER_BLAKE2B_PERSONAL = 9;
+    }
+
+    required string bip32_name = 1;
+    required CurveParams params = 2;
+    required HasherType hasher_base58 = 3;
+    required HasherType hasher_sign = 4;
+    required HasherType hasher_pubkey = 5;
+    required HasherType hasher_script = 6;
+}
+
+message HDNodeMessage {
+    required uint32 depth = 1;
+    required uint32 child_num = 2;
+    required bytes chain_code = 3;
+    required bytes private_key = 4;
+    required bytes private_key_extension = 5;
+    required bytes public_key = 6;
+    required CurveInfo curve = 7;
+}

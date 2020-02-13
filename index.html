@@ -1,0 +1,45 @@
+<html>
+  <body>
+    <script src="https://cdn.rawgit.com/dcodeIO/protobuf.js/6.8.8/dist/protobuf.min.js"></script>
+    <script src="helpers.js"></script>
+    <script src="build/index.js"></script>
+
+    <!-- In app usage example -->
+    <script>
+        Module.onRuntimeInitialized = function() {
+            // Encode into typed value on JS
+            protobuf.load("proto/libcoins.proto", function(err, root) {
+                if (err) throw err;
+
+                // seed hex -> vector<uint8_t>
+                // abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about
+                var seedHex = "5eb00bbddcf069084889a8ab9155568165f5c453ccb85e70811aaed6f6da5fc19a5ac40b389cd370d086206dec8aa6c43daea6690f20ad3d8d48b2d2ce9e38e4";
+                var seedVector = new Module.VectorUint8();
+                var seedSize = Module.HexEncoding.from_hex(seedHex, seedVector);
+                
+                // seed vector<uint8_t> -> hdNode vector<uint8_t>
+                var hdNodeVector = new Module.VectorUint8();
+                var hdNodeSize = Module.HDWallet.hdnode_new(seedVector, hdNodeVector);
+                console.log(hdNodeSize);
+
+                // hdNode vector<uint8_t> -> Uint8Array -> HDNodeMessage
+                var HDNodeMessage = root.lookupType("HDNodeMessage");
+                var hdNodeBytes = toUint8Array(hdNodeVector, hdNodeSize);
+                var result = HDNodeMessage.decode(hdNodeBytes);
+                printHTML(JSON.stringify(result, null, "\t"));
+
+                // From JS to C
+                var xprv = Module.HDWallet.serialize_xprv(hdNodeVector);
+                console.log("[JS] xprv: " + xprv);
+
+                // // JS -> C
+                // var jsMessage = SimpleMessage.create({luckyNumber: 653, seed: "Hello, world!"});
+                // var buffer = SimpleMessage.encode(jsMessage).finish();
+                // var bufferStr = toHexString(buffer);
+                // console.log("Encoded from JS payload: " + bufferStr);
+                // Module.decode(bufferStr);
+            });
+        }
+    </script>
+  </body>
+</html>

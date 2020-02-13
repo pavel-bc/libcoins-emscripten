@@ -1,0 +1,11 @@
+# BigNum
+BigNum.val                             max_count:9
+
+# CurveInfo
+CurveInfo.bip32_name                   max_size:32
+
+# HDNodeMessage
+HDNodeMessage.chain_code               max_size:32
+HDNodeMessage.private_key              max_size:32
+HDNodeMessage.private_key_extension    max_size:32
+HDNodeMessage.public_key               max_size:33

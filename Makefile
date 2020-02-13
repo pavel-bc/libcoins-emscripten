@@ -23,10 +23,10 @@ OBJECTS += $(BUILD_DIR)/HDWallet.o
 
 # Commands
 proto:
+	mkdir -p $(BUILD_DIR)
 	$(PROTOC) $(PROTOC_OPTS) --nanopb_out=$(SRC_DIR) $(PROTO_DIR)/libcoins.proto
 
 build:
-	mkdir -p $(BUILD_DIR)
 	emcc --bind -c $(SRC_DIR)/main.cpp $(INCLUDE_FLAGS) -o $(BUILD_DIR)/main.o
 	emcc --bind -c $(SRC_DIR)/HexEncoding.cpp $(INCLUDE_FLAGS) -o $(BUILD_DIR)/HexEncoding.o
 	emcc --bind -c $(SRC_DIR)/HDWallet.cpp $(INCLUDE_FLAGS) -o $(BUILD_DIR)/HDWallet.o

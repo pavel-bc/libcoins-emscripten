@@ -9,7 +9,7 @@ Emscripten playground for libcoins project.
 
 ## Building
 
-- Ensure correct `NANOPB_DIR` is set in `Makefile`
+- Ensure correct `NANOPB_DIR` is set in [Makefile](Makefile)
 - Source Emscripten SDK:
 
     ```sh

@@ -14,7 +14,7 @@ CSRC += $(SRC_DIR)/nanopb/*.c
 CSRC += $(SRC_DIR)/trezor/*.c
 CSRC += $(SRC_DIR)/trezor/ed25519-donna/*.c
 
-CFLAGS = -O3 -s MODULARIZE=1 -s 'EXPORT_NAME="$(EXPORT_NAME)"'
+CFLAGS = -O3 --closure 1 -s MODULARIZE=1 -s 'EXPORT_NAME="$(EXPORT_NAME)"'
 
 INCLUDE_FLAGS  = -I$(SRC_DIR)
 INCLUDE_FLAGS += -I$(SRC_DIR)/nanopb

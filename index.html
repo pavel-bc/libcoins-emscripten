@@ -1,12 +1,14 @@
 <html>
-  <body>
+  <head>
     <script src="https://cdn.rawgit.com/dcodeIO/protobuf.js/6.8.8/dist/protobuf.min.js"></script>
     <script src="lib/utils.js"></script>
-    <script src="build/index.js"></script>
+    <script src="build/libcoins.js"></script>
+  </head>
 
+  <body>
     <!-- In app usage example -->
     <script>
-        Module.onRuntimeInitialized = function() {
+        LibCoins().then(function(Module) {
             // Encode into typed value on JS
             protobuf.load("proto/libcoins.proto", function(err, root) {
                 if (err) throw err;
@@ -39,7 +41,7 @@
                 // console.log("Encoded from JS payload: " + bufferStr);
                 // Module.decode(bufferStr);
             });
-        }
+        });
     </script>
   </body>
 </html>

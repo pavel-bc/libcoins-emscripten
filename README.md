@@ -4,6 +4,7 @@ Emscripten playground for libcoins project.
 
 ## Pre-requisites
 
+- [protobuf](https://github.com/protocolbuffers/protobuf)
 - [nanopb](https://github.com/nanopb/nanopb)
 - [emscripten](https://github.com/emscripten-core/emscripten)
 

@@ -40,6 +40,6 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 serve:
-	emrun --port 8080 .
+	emrun --verbose --no_browser --port 8080 .
 	
 .PHONY: proto build clean serve

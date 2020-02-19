@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-#include "HexEncoding.hpp"
+#include "HexEncoding.h"
 
 namespace libcoins {
     // byte array to hex string

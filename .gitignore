@@ -2,7 +2,11 @@
 
 # Build artifacts
 build/
+dist/
 src/proto/
+
+# CMake
+Makefile
 
 # Protobuf artifacs
 libcoins.pb.c

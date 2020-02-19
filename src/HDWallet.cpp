@@ -6,11 +6,11 @@
 #include <pb_decode.h>
 
 #include "proto/libcoins.pb.h"
-#include "trezor/bip32.h"
-#include "trezor/curves.h"
-#include "trezor/secp256k1.h"
+#include "TrezorCrypto/bip32.h"
+#include "TrezorCrypto/curves.h"
+#include "TrezorCrypto/secp256k1.h"
 
-#include "HDWallet.hpp"
+#include "HDWallet.h"
 
 namespace libcoins {
     int HDWallet::hdnode_new(const std::vector<uint8_t> & seed, std::vector<uint8_t> & result) {

@@ -1,7 +1,7 @@
 #include <emscripten/bind.h>
 
-#include "HexEncoding.hpp"
-#include "HDWallet.hpp"
+#include "HexEncoding.h"
+#include "HDWallet.h"
 
 EMSCRIPTEN_BINDINGS(my_module) {
     emscripten::register_vector<uint8_t>("VectorUint8");

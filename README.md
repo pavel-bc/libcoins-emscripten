@@ -10,21 +10,21 @@ Emscripten playground for libcoins project.
 
 ## Building
 
-- Ensure correct `NANOPB_DIR` is set in [Makefile](Makefile)
+- Ensure correct `NANOPB_DIR` is set in [bootstrap.sh](bootstrap.sh)
 - Source Emscripten SDK:
 
     ```sh
     $ source $HOME/sandbox/emsdk/emsdk_env.sh
     ```
 
-- Build protobuf & wasm artifacts:
+- Build everything:
 
     ```sh
-    $ make proto build
+    $ ./bootstrap.sh
     ```
 
 - Serve HTML files:
 
     ```sh
-    $ make serve
+    $ emrun --port 8080 .
     ```
